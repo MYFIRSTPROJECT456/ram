@@ -127,6 +127,11 @@ ul li a {
 
 		margin-top: -10px;	
 	}
+
+	.search:hover {
+    width: -300p;
+    /* background-color: lightpink; */
+    }
 }
 
 #stacked:hover > .dropdown-content {
@@ -138,4 +143,9 @@ ul li a {
 {
 
 	display: none;
+}
+
+#query:hover {
+    width: 460px;
+    /* background-color: lightpink; */
 }
