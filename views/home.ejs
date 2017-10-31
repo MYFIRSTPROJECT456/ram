@@ -18,18 +18,19 @@
 				<span class="icon-bar"></span>
 			</button>
 
-			<a href="#" class="navbar-brand">FreeAds</a>
+			<a href="/" class="navbar-brand">FreeAds</a>
 		</div>
 		<div class="navbar-collapse collapse" id="mynavs">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a style="height: 50px;" href="#">
 					<div class="input-group" style=" width: 320px; margin-top: -6px;">
-                  <input type="text" class="form-control" placeholder="Electronics & Mechanical,Foods & Services,Computer..." id="query" name="query" value="">
+                  <input type="text" class="form-control" placeholder="Electronics & Mechanical, Foods & Services, Computer..." id="query" name="query" value="">
                    <div class="input-group-btn">
                   <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
                   </div>
-        </div>
-				</a></li>
+        			</div>
+				   </a>
+				</li>
 				<li><a>
 					<span style="color:crimson;" class="glyphicon glyphicon-envelope"></span> FreeAds@gmail.com</a>
 				</li>
@@ -45,15 +46,37 @@
 <!-- middle section -->
 
 <div class="header">
-	<div class="container-fluid">
+	<div class="container-fluid" id="middle">
 		<div class="row">
-			<div id="slide1" class="col-lg-2 col-sm-2"></div>
+			<div id="slide1" class="col-lg-2 col-sm-2">
+					<ul class="nav nav-stacked" id="stacked">
+						<% for(var i=0; i< categorydata[0].length; i++) {%>
+						<li><a href=""><%= categorydata[0][i].CATEGORYNAME%></a></li>
+					<div class="dropdown-content">
+				 		<% 
+						var categoryid  = categorydata[0][i].CATEGORYID;
+						if (categorydata[categoryid]) {
+						var newArr = categorydata[categoryid];
+						for(var j=0; j< newArr.length; j++) {
+
+						%>
+			   		<a href=""><%= newArr[j].CATEGORYNAME%></a>,
+
+
+
+						<% } 
+						}
+						%>	
+					</div>
+					<% } %>
+					</ul>
+			</div>
 			<div id="main" class="col-lg-8 col-sm-8">
 				<table class="table">
 					<% for(var i = 0; i < listAds.length; i++){%>
 					<tr>
 						<td>
-							<div class="row">
+							<div class="row" id="main1">
 								<div class="col-lg-3 col-sm-3 col-xs-3 ImgData" id="ImgData">
 									<img  src="/assets/<%=listAds[i].ADID%>.<%= listAds[i].EXT%>" alt="" class="img-thumbnail">
 								</div>

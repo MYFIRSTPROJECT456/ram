@@ -23,9 +23,9 @@
 		if (cname.value == '') {
 			error.textContent = 'Please enter your categoryname?';
 			successflag = false;
-		}if (pid.value == '0') {
+		}/*if (pid.value == '') {
 			error1.textContent = 'Please select your ParentCatName?';
 			successflag = false;
-		}
+		}*/
 		return successflag;
 	}

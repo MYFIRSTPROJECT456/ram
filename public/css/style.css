@@ -30,14 +30,22 @@
 
 	background-color: lightgrey;
 	height: 580px;
+	/* position: fixed; */
+
 }
 
 #slide2 {
 
 	background-color: lightgrey;
 	height: 580px;
+	/* position: fixed;
+	    margin-left: 1072px; */
 }
 
+/*#main{
+	margin-left: 210px;
+}
+*/
 .social {
 
 	margin-left: 871px;
@@ -48,12 +56,32 @@
 	padding: 5px;
 }
 
+#middle {
+		
+    margin-bottom: 55px;
+}
+
+#stacked {
+
+	margin-top: 55px;
+}
+
+ul li a {
+
+	border-radius: 6px;
+}
 @media(max-width: 768px){
 
 	.social {
 
 	margin-left: 15px;
-}	
+}
+
+/* #slide1 {
+	
+		margin-top: 50px;
+	    width: 339px;
+	} */	
 }
 
 #Copyright
@@ -99,4 +127,15 @@
 
 		margin-top: -10px;	
 	}
+}
+
+#stacked:hover > .dropdown-content {
+
+	display: block;
+}
+
+.dropdown-content 
+{
+
+	display: none;
 }
