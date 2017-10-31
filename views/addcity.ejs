@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD CITY</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>   
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-xs-4"></div>
+        <div class="col-sm-4 col-xs-4">
+            <form action="/admin/city/addcitydata" name="formname" method="post" class="form-inline" style="border:solid 1px #f3f3f3; padding: 20px; " onsubmit="return validation();">
+    
+                <label for="">State Name : </label>
+                <select style="width: 213px;" name="sname" id="" class="form-control">
+                    <option value="">Select State</option>
+                <% for(var i=0; i < data.length; i++) {%>
+                    <option  value="<%= data[i].STATEID %>">
+                        <%= data[i].STATENAME %>
+                    </option>
+                <% } %>
+                </select>
+                <p id="error" style="color: red;"></p>
+                <br>   
+                <label for="">City Name : </label>
+                <input style="width: 215px;" type="text" class="form-control"  id="cname" name="cname">
+                <p id="error1" style="color: red;"></p>
+                <br>
+                <input style="width: 213px;" type="submit" value="ADD NEW CITY" class="btn btn-success btn-lg">
+            </form>
+        </div>
+        <div class="col-sm-4 col-xs-4"></div>
+    </div>
+</div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/cityvalidation.js"></script>
+</body>
+</html>

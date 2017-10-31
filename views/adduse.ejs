@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ADD USERS</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>	
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-xs-4"></div>
+		<div class="col-sm-4 col-xs-4">
+			<form action="/admin/users/addusedata" name="formname" method="post"  style="border:solid 1px #f3f3f3; padding: 20px;" onsubmit="return validation()">
+				<label for="">User Name : </label>
+				<input style="width: 225px;" type="text" class="form-control" name="uname" id="uname">
+				<p id="error" style="color: red;"></p>
+			
+				<label for="">Mobile No. : </label><input style="width: 225px;" type="text" class="form-control" id="mob" name="mob">
+				<p id="error1" style="color: red;"></p> 
+	
+				<label for="">Email Id : </label><input style="width:225px;" type="text" class="form-control"  id="email" name="email">
+				<p id="error2" style="color: red;"></p> 
+		
+				<label for="">Status : </label>
+				<select id="status" style="width: 225px;" class="form-control" name="status" >
+					  <option value="">Select Status</option>
+					  <option value="Confirm">Confirm</option>
+					  <option value="Unconfirmed">Unconfirmed</option>
+				</select> 
+				<p id="error3" style="color: red;"></p> 
+				<label for="">User Password : </label><input style="width: 225px;" type="password" class="form-control"  id="upass" name="upass">
+				<p id="error4" style="color: red;"></p>
+				<br>
+				<input style="width: 225px;" type="submit" value="Add State" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4 col-xs-4"></div>
+	</div>
+</div>
+	<script src="/js/1.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	
+</body>
+</html>

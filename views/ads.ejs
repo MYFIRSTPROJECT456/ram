@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AdsList</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<!-- <div class="container"> -->
+	<a href="/admin/ads/addads" style="margin-top: 5px;" type="button" class="btn btn-success btn-lg btn-block" id="btn">ADD ADS</a>
+<br>
+<table class="table table-striped">
+	<tr style="background-color: lightgrey;">
+		<th>ADID</th>
+		<th>TITLE</th>
+		<th>DISCRIPTION</th>
+		<th>UPLOADIMG</th>
+		<th>WEBSITE</th>
+		<th>CATID</th>
+		<th>SUB-CAT</th>
+		<th>SID</th>
+		<th>CID</th>
+		<th>LID</th>
+		<th>AREA</th>
+		<th>STATUS</th>
+		<th>ACTION</th>
+		<th>CREATIONDATE</th>
+		<th>UPDATIONDATE</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	<% for(var i = 0; i < data.length; i++) {
+		var actionStatus = '';
+		if (data[i].STATUS =='Pending') {
+			actionStatus = 'Approve';
+		} else if(data[i].STATUS =='Approved') {
+			actionStatus = 'Reject';
+		} 
+	
+	%>
+	<tr>
+		<td><%= data[i].ADID%></td>
+		<td><%= data[i].TITLE%></td>
+		<td><%= data[i].DISCRIPTION%></td>
+		<td><img src="/assets/<%= data[i].ADID%>.<%=data[i].EXT%>" width="50" height="50"></td>
+		<td><%= data[i].WEBSITE%></td>
+		<td><%= data[i].CATEGORYID%></td>
+		<td><%= data[i].SUB_CATEGORY%></td>
+		<td><%= data[i].STATEID%></td>
+		<td><%= data[i].CITYID%></td>
+		<td><%= data[i].LOCALITYID%></td>
+		<td><%= data[i].AREA%></td>
+		<td><%= data[i].STATUS%></td>
+		<td><a href="/admin/ads/changestatus?adsid=<%=data[i].ADID
+		%>&action=<%=actionStatus%>"><%= actionStatus %></a></td>
+		<td><%= data[i].CREATIONDATE%></td>
+		<td><%= data[i].UPDATIONDATE%></td>
+		<td><a href="/admin/ads/updateads?adsid=<%=data[i].ADID %>" data-toggle="tooltip" title="edit" id="edit"><span class="glyphicon glyphicon-edit">Edit</span></a></td>
+		<td><a href="/admin/ads/deleteads?adsid=<%=data[i].ADID
+		%>"" data-toggle="tooltip" title="delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+	</tr>
+	<% } %>
+</table>
+<!-- </div> -->
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+</body>
+</html>

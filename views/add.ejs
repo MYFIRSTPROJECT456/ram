@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ADD STATE</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form action="/admin/state/adddata" name="formname" method="post" class="form-inline" style="border:solid 1px #f3f3f3; padding: 20px;" onsubmit="return validation();">
+				<label for="">State Name : </label>
+				<input style="width: 238px;" type="text" class="form-control" name="sname">
+				<p id="error" style="color: red;"></p>
+				<br>
+				<input style="width: 238px;" type="submit" value="ADD NEW STATE" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/statevalidation.js"></script>
+
+</body>
+</html>

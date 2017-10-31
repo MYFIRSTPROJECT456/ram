@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add student</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form action="/admin/locality/updatelocdata" method="post" 		class="	form-inline" style="border:solid 1px #f3f3f3; padding: 27px;">
+				
+				<label for="">Locality Id : </label><input style="    width: 222px;" type="text" class="form-control" id="lid" readonly="readonly" name="lid" value="<%= data[0].LOCALITYID %>">
+				<br><br>
+				<label for="">Locality Name : </label><input type="text" class="form-control" id="lname" name="lname" value="<%= data[0].LOCALITYNAME %>">
+				<br><br>
+				<label for="">City Id : </label><input style="width: 248px;" type="text" class="form-control" id="cid" name="cid" value="<%= data[0].CITYID %>">
+				<br><br>
+				<input style="width: 298px;" type="submit" value="Update Locality" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add State</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>	
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-xs-4"></div>
+		<div class="col-sm-4 col-xs-4">
+			<form action="/admin/locality/addlocdata" name="formname" method="post" class="form-inline" style="border:solid 1px #f3f3f3; padding: 15px;" onsubmit="return validation();">
+				<label for="">CITYNAME : </label>
+				<select style="width: 232px;" name="cname" id="" class="form-control">
+					<option value="">Select City</option>
+				<% for(var i=0; i < data.length; i++) {%>	
+					<option value="<%= data[i].CITYID%>">
+						<%= data[i].CITYNAME %>
+					</option>
+				<% } %>
+				</select>
+				<p id="error" style="color: red;"></p>
+				<br>
+				<label for="">LOCALITYNAME : </label>
+				<input style="width: 232px;" type="text" class="form-control"  id="lname" name="lname">
+				<p id="error1" style="color: red;"></p>
+				<br>
+				<input style="width: 232px;" type="submit" value="Add Locality" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4 col-xs-4"></div>
+	</div>
+</div>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/localityvalidation.js"></script>
+</body>
+</html>

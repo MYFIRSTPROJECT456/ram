@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ADD USERS</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form action="/admin/ads/updateadsdata" method="post" style="border:solid 1px #f3f3f3; padding: 39px;">
+				<input style=" width: 233px;" type="text" class="form-control hidden" name="aid" id="aid" value="<%= data[0].ADID%>">
+				<label for="">Title : </label><input style="width: 250px;" type="text" class="form-control" name="tit" id="tit" value="<%= data[0].TITLE%>">
+				<br><br>
+				<label for="">Tags/Keywords : </label><input style="width: 250px;" type="text" class="form-control" id="tags" name="tags" value="<%= data[0].TAGSKEYS %>">
+				<br><br>	
+				<label for="">Discription : </label><textarea style="width:
+				250px;" name="dis" id="dis" class="form-control" rows="3"><%= data[0].DISCRIPTION %></textarea>
+				<br><br>
+				<label for="">Images : </label><input style="width: 250px;"type="text" class="form-control" id="img" name="img" value="<%= data[0].UPLOADIMG %>">
+				<br><br>
+				<label for="">Website : </label><input style=" width: 250px;" type="text" class="form-control" id="web" name="web" value="<%= data[0].WEBSITE %>">
+				<br>
+				<label for="">CategoryId : </label><input style="width: 250px;" type="text" class="form-control" id="c1id" name="c1id" value="<%= data[0].CATEGORYID %>">
+				<br>
+				<label for="">SubCategoryId : </label>
+				<select style="width: 250px;" name="scid" id="scid" class="form-control">
+					<option value="1"><%= data[0].SUB_CATEGORY %></option>
+				</select>
+				<br><label for="">StateId : </label><input style="width: 250px;" type="text" class="form-control" id="sid" name="sid" value="<%= data[0].STATEID%>">
+				<br><label for="">CityId : </label><input style="width: 250px;" type="text" class="form-control" id="cid" name="cid" value="<%= data[0].CITYID %>">
+				<br><br>
+				<label for="">LocalityId : </label><input style="width: 250px;" type="text" class="form-control" id="lid" name="lid" value="<%= data[0].LOCALITYID %>">
+				<br>
+				<label margin-top: 30px;" for="">AREA : </label><input 
+				style="width: 250px; type="text" class="form-control" id="area" name="area" value="<%= data[0].AREA %>">
+				<br><br>
+				<label for="">Status : </label>
+				<select style="width: 250px;" name="status" id="status" class="form-control">
+					<option value="<%= data[0].STATUS %>"><%= data[0].STATUS %></option>
+				</select>
+				<br><br>
+				<input style="width: 250px;" type="submit" value="Update Ads" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>

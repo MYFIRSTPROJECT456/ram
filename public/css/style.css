@@ -1,0 +1,102 @@
+/* navigatoin */
+.navbar {
+
+	background-color: #222222 !important;
+	text-transform: uppercase;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-weight: 700;
+}
+
+.navbar a {
+
+	color: #fff !important;
+	opacity: 0.9;
+}
+
+.navbar a:hover {
+
+	opacity: 1;
+	background-color: #111111!important;
+}
+
+.navbar-brand {
+
+	font-family: Comic Sans MS;
+	font-size: 45px;
+	text-transform:  capitalize;
+}
+
+#slide1 {
+
+	background-color: lightgrey;
+	height: 580px;
+}
+
+#slide2 {
+
+	background-color: lightgrey;
+	height: 580px;
+}
+
+.social {
+
+	margin-left: 871px;
+    margin-top: 12px;
+}
+.social i {
+
+	padding: 5px;
+}
+
+@media(max-width: 768px){
+
+	.social {
+
+	margin-left: 15px;
+}	
+}
+
+#Copyright
+{
+
+	color: #fff;
+}
+
+.ImgData {
+	
+	margin-top: 60px;
+}
+
+.img-thumbnail {
+	
+	height: 150px;
+}
+
+#ListData {
+
+	margin-top: 60px;
+}
+
+@media(max-width: 768px) {
+	
+	.img-thumbnail{
+
+		margin-top: -50px ;
+		height: 223px;
+	}
+
+	#ListData{
+
+		margin-top: 16px;
+	}
+
+	.btn-xs{
+
+		margin-top: -10px;
+	}
+
+	#website {
+
+		margin-top: -10px;	
+	}
+}

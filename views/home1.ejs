@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/external.css">
+	<script src="https://use.fontawesome.com/5ee69e6b7c.js"></script>
+</head>
+<body>
+<div class="container-fluid ">
+
+	<div class="row  navbar-fixed-top "  style="background-color: #ebeef4">
+		<div class="col-sm-2">
+				<div class="navbar-header ">
+				<a href="" class="navbar-brand">
+					<img style="height: 40px; margin-top:
+					 -10px; margin-left: -17px;" src="/images/logo.png" 
+					  alt="">
+				</a>
+				</div>
+		</div>
+		
+		<div class="col-sm-5">
+			<div class="input-group">
+	                  <input type="text" class="form-control" placeholder="Electronics & Mechanical,Foods & Services,Computer..." id="query" name="query" value="">
+	                   <div class="input-group-btn">
+	                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
+	                  </div>
+            	 </div>
+		</div>
+
+		<div class="col-sm-5 pull-right">
+			<div class="pull-right " style="font-size: 17px;">
+
+					<span style="color:crimson;" class="glyphicon glyphicon-envelope"></span> FreeAds@gmail.com
+					<span style="color:cadetblue;" class="glyphicon glyphicon-phone"></span> +91-8898000000
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/userlogin" class="login" style="text-decoration: none; color: #3b5998; font-style: italic;font-family: Impact"><span style="color:mediumvioletred;" class="glyphicon glyphicon-user"></span>
+						Login
+						</a>
+				</div>
+		</div>
+		
+	</div>
+			
+</div>
+
+<div class="container-fluid"  style="margin-top: 50px;" >
+	<div class="row">
+	
+		<div style="background-color: lightgrey; height: 600px;" class="col-sm-2 " id="aright">
+				<% for(var i=0; i< categorydata[0].length; i++) {%> 
+							
+				<div class="dropdown">
+				
+				  <button class="dropbtn" style="margin-top: 7px;"><%= categorydata[0][i].CATEGORYNAME%></button>
+
+				  
+				  <div class="dropdown-content">
+				  <% 
+						var categoryid  = categorydata[0][i].CATEGORYID;
+						if (categorydata[categoryid]) {
+						var newArr = categorydata[categoryid];
+						for(var j=0; j< newArr.length; j++) {
+
+						%>
+			   		<a href=""><%= newArr[j].CATEGORYNAME%></a>
+
+
+
+						<% } 
+						}
+						%>	
+						</div>
+				<% } %>
+				</div>
+			</div><!-- end of left-slide-->
+		</div>
+
+  <div class="col-sm-8" id="left">
+      <div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<table class="table"> 
+					<% for(var i=0; i< listAds.length; i++) {%> 
+					 <tr>    
+					 <td>   
+						     
+		    <div class="row">
+				<div class="col-sm-6">
+					<img src="/assets/<%=listAds[i].ADID%>.<%= listAds[0].EXT%>" alt="" style="height:
+					225px; margin-top: 3px; width: 170px; margin-left: -18px;" class="img-thumbnail" >
+				</div>
+
+				<div class="col-sm-6"> 
+					<p><a href=""><%= listAds[0].TITLE%></a></p>
+					<p><%= listAds[0].DISCRIPTION%></p>
+					<p><%= listAds[0].WEBSITE%></p>
+					<a href="" class="btn btn-default btn-xs" type="button">Details</a>
+				</div>
+	 	 	</div>
+	 	 	<br>&nbsp;
+					
+					</td>
+					</tr>
+				  <%}%>
+					</table>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</div>
+		
+		<div  style="background-color: lightgrey; height: 600px;margin-left:1083px" class="col-sm-2" id="aright">
+		</div>
+
+		<div class="container-fluid navbar-fixed-bottom" id="foot">
+
+
+			<div class="col-sm-5 my_menu1" >
+				<nav class="navbar navbar-default fixed-bottom">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavs1">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+			<div class="collapse navbar-collapse" id="mynavs1">	
+				<ul class="nav navbar-nav pull-left">
+					<li><a href="">Home</a></li>
+					<li><a href="">About Us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">Products</a></li>
+					<li><a href="">Contact Us</a></li>
+				</ul>
+			</div>
+			</div>
+
+		
+				 <ul class="nav navbar-nav pull-right ">
+					<a href="" style="color: black">Follow us on:</a>
+
+					<a href="" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" style="font-size: 20px; color: #3B5998; "></i></a>
+					<a href="" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" style="font-size: 20px; color: #0084b4;"></i></a>
+					<a href="https://www.youtube.com/" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube-play" style="font-size: 20px; color: #cc181e;"></i></a>
+					<a href="" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus" style="font-size: 20px; color: #db4437;"></i></a>
+				</ul>
+		</div><!-- end of container-fluid of footer-->
+
+	<div class="footer-copyright text-center navbar-fixed-bottom">
+        <div class="container-fluid">
+           © 2017 Copyright: <a href="http://localhost:3000/"> FreeAds.com </a>
+        </div>
+    </div>
+<scr
+	</div>
+</div>
+
+
+
+
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>	
+</body>
+</html>
+

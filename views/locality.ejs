@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Localitylist</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<a href="/admin/locality/addloc" style="margin-top: 5px;" type="button" class="btn btn-success btn-lg btn-block" id="btn">ADD NEW LOCALITY</a>
+<br>
+<table class="table table-striped">
+	<tr style="background-color: lightgrey;">
+		<th>LOCALITYID</th>
+		<th>LOCALITYNAME</th>
+		<th>CITYID</th>
+		<th>CITYNAME</th>
+		<th>CREATIONDATE</th>
+		<th>UPDATIONDATE</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	<% for(var i=0; i < data.length; i++) {%>
+	<tr>
+		<td><%= data[i].LOCALITYID %></td>
+		<td><%= data[i].LOCALITYNAME %></td>
+		<td><%= data[i].CITYID %></td>
+		<td><%= data[i].CITYNAME %></td>
+		<td><%= data[i].CREATIONDATE %></td>
+		<td><%= data[i].UPDATIONDATE %></td>
+		<td><a href="/admin/locality/updateloc?localityid=<%= data[i].LOCALITYID%>" data-toggle="tooltip" title="edit" id="edit"><span class="glyphicon glyphicon-edit">Edit</span></a></td>
+		<td><a href="/admin/locality/deleteloc?localityid=<%= data[i].LOCALITYID%>" data-toggle="tooltip" title="delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+	</tr>
+	<% } %>
+</table>
+</div>
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+</body>
+</html>

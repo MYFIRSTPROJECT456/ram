@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>UPDATE CATEGORY</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form action="/admin/category/updatecatdata" method="post" class="form-inline"  style="border:solid 1px #f3f3f3; padding: 25px;">
+		
+				<label for="">Category Id : </label><input style="width: 222px;" type="text" class="form-control" id="cid" readonly="readonly" name="cid" value="<%= data[0].CATEGORYID %>">
+				<br><br>
+				<label for="">Category Name : </label><input type="text" class="form-control" id="cname"  name="cname" value="<%= data[0].CATEGORYNAME %>">
+				<br><br>
+				<label for="">Parent-Category Id : </label><input style="width: 173px;" type="text" class="form-control" id="pid" name="pid" value="<%= data[0].PARENTCATEGORYID %>">
+				<br><br>
+				<input style="width: 305px;" type="submit" value="Update Category" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>

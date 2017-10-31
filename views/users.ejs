@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>UserList</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<a href="/admin/users/adduse" style="margin-top: 5px;" type="button" class="btn btn-success btn-lg btn-block" id="btn">ADD NEW USERS</a>
+<br>
+<table class="table table-striped">
+	<tr style="background-color: lightgrey;">
+		<th>USERID</th>
+		<th>USERNAME</th>
+		<th>MOBILENO</th>
+		<th>EMAILID</th>
+		<th>STATUS</th>
+		<th>USERPASSWORD</th>
+		<th>UPDATIONDATE</th>
+		<th>UPDATIONDATE</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	<% for(var i=0; i < data.length; i++){%>
+	<tr>
+		<td><%= data[i].USERID %></td>
+		<td><%= data[i].USERNAME %></td>
+		<td><%= data[i].MOBILENO %></td>
+		<td><%= data[i].EMAILID %></td>
+		<td><%= data[i].STATUS %></td>
+		<td><%= data[i].USERPASSWORD %></td>
+		<td><%= data[i].CREATIONDATE %></td>
+		<td><%= data[i].UPDATIONDATE %></td>
+		<td><a href="/admin/users/updateuse?usersid=<%= data[i].USERID %>" data-toggle="tooltip" title="edit" id="edit"><span class="glyphicon glyphicon-edit">Edit</span></a></td>
+		<td><a href="/admin/users/deleteuse?usersid=<%= data[i].USERID %>" data-toggle="tooltip" title="delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+	</tr>
+	<% } %>
+</table>
+</div>
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+</body>
+</html>

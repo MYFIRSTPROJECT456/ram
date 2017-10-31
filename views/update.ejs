@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add student</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>	
+<div class="container">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<form action="/admin/state/updatedata" method="post" class="	form-inline" style="border:solid 1px #f3f3f3; padding: 38px;">
+					<label for="">State Id : </label><input style="width: 221px;" type="text" class="form-control" id="sid" readonly="readonly" name="sid" value="<%= data[0].STATEID %>">
+					<br><br>
+					<label for="">State Name : </label><input type="text" class="form-control" id="sname" name="sname" value="<%= data[0].STATENAME %>">
+					<br><br>
+					<!-- <label for="">UPDATIONDATE : </label><input type="text" class="form-control" id="udate" name="udate" value="<%= data[0].UPDATIONDATE %>"> -->
+					<input style="width: 278px;" type="submit" value="Update State" class="btn btn-success btn-lg">
+				</form>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>	
+	
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>

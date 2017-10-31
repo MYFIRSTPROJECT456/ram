@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add student</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<%- include menu.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form action="/admin/users/updateusedata" method="post" class="	form-inline" style="border:solid 1px #f3f3f3; padding: 27px;">
+				<label for="">User Id : </label><input style="width: 246px;" type="text" class="form-control" id="uid" readonly="readonly" name="uid" value="<%= data[0].USERID %>">
+				<br><br>
+				<label for="">Mobile No. : </label><input style="    width: 223px;" type="text" class="form-control" id="mob" name="mob" value="<%= data[0].MOBILENO %>">
+				<br><br>
+				<label for="">Email Id : </label>
+				<input style="width: 235px;" type="text" class="form-control" id="email" name="email" value="<%= data[0].EMAILID %>">
+				<br><br>
+				<label for="">Status : </label>
+				<select style="width: 246px;" name="status" id="" class="form-control" value="<%= data[0].STATUS %>">
+					<option value="Confirm">Confirm</option>
+					<option value="Unconfirm">Unconfirm</option>
+				</select>
+				<br><br>
+				<label for="">Userpassword : </label><input type="text" class="form-control" id="upass" name="upass" value="<%= data[0].USERPASSWORD %>">
+				<br><br>
+				<input style="width: 300px;" type="submit" value="UPDATE USER" class="btn btn-success btn-lg">
+			</form>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+</body>
+</html>
