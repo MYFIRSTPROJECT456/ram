@@ -1,11 +1,11 @@
 var express = require('express');
 
 var router = express.Router();
-var maindata = require('../model/localitymodel');
-var maindata1 = require('../model/citymodel');
+var localitymodel = require('../model/localitymodel');
+var citymodel = require('../model/citymodel');
 
 router.get('/addloc', function(req, res, next){
-	maindata1.listCity(function(error, result){
+	citymodel.listCity(function(error, result){
 		if (error) {
 			res.render('addloc', {error:error});
 		}
@@ -19,7 +19,7 @@ router.post('/addlocdata', function(req, res, next){
 		lname : req.body.lname,
 		cname : req.body.cname,
 	}
-	maindata.addLocality(inputfielddata3, function(error, result){
+	localitymodel.addLocality(inputfielddata3, function(error, result){
 		if (error) {
 			var msg = 'wrong input';
 			res.redirect('/admin/locality/addloc?error'+msg);
@@ -31,7 +31,7 @@ router.post('/addlocdata', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	maindata.listLocality(function(error, result){
+	localitymodel.listLocality(function(error, result){
 		if (error) {
 			res.render('locality', {error:error});
 		}
@@ -44,7 +44,7 @@ router.get('/', function(req, res, next){
 
 router.get('/updateloc', function(req, res, next){
 	var id = req.query.localityid;
-	maindata.getLocalityById(id, function(error, result){
+	localitymodel.getLocalityById(id, function(error, result){
 		if (error) {
 			res.render('locality', {error:error});
 		}
@@ -60,7 +60,7 @@ router.post('/updatelocdata', function(req, res, next){
 		lname : req.body.lname,
 		cid : req.body.cid,
 	}
-	maindata.localityUpdate(inputfielddata3, function(error, result){
+	localitymodel.localityUpdate(inputfielddata3, function(error, result){
 		if (error) {
 			res.redirect('/admin/locality/updateloc?localityid'+req.body.lid);
 		}
@@ -71,14 +71,14 @@ router.post('/updatelocdata', function(req, res, next){
 });
 router.get('/deleteloc', function(req, res, next){
 	var id = req.query.localityid;
-	maindata.deleteLocality(id, function(error, result){
+	localitymodel.deleteLocality(id, function(error, result){
 		res.redirect('/admin/locality');
 	});
 });
 router.post('/getlocalitybycity', function(req, res, next) {
     console.log('Inside ajax');
     var cityid = req.body.cityid; 
-    maindata.listLocalityByCity(cityid, function(error, result){
+    localitymodel.listLocalityByCity(cityid, function(error, result){
         if (error) {    
             res.send({error:error});
         }

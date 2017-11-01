@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add new ads</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            background-repeat: no-repeat;
+             background-size: 100%;
+
+        }
+    </style>
+</head>
+<body>
+ <div class="row">
+ <div class="col-lg-3"></div>
+ <div class="col-lg-6">
+ <form style="border: 1px solid lightgrey; padding: 15px;" name="formname" action="/admin/ads/addadsdata" method="post" enctype="multipart/form-data" onsubmit="return validation();">
+    
+    <label for="">Title : </label><input style="width: 225px;" type="text" class="form-control" id="tit" name="tit">
+
+    <label for="">Tags/Keywords : </label><input style="width: 225px;" type="text" class="form-control" id="tags" name="tags">
+   
+    <label for="">Discription : </label><textarea style="width: 225px;" id="Discription" class="form-control" rows="3" name="dis"></textarea>
+    
+    <label for="">Upload Image :</label><input type="file" id="img" name="img">
+   
+    <label for="">Website : </label><input style="width: 225px;" type="text" class="form-control" id="web" name="web">
+    <p id="error4" style="color: red;"></p>
+    <label for="">Category: </label>
+    <select style="width: 225px;" name="c1name" id="c1name" class="form-control">
+        <option value="">Select Category</option>
+       
+            <option value="">
+            </option>
+    </select>
+   
+    <label for="">Sub-Category : </label>
+    <select style="width: 225px;" name="scat" id="scat" class="form-control">
+        <option value="">Select</option>
+    </select>
+   
+    <label for="">State : </label>
+    <select style="width: 225px;" name="sname" id="sname" class="form-control">
+        <option value="">Select State</option>
+       
+            <option value="">
+            
+            </option>
+   
+    </select>
+   
+    <label for="">City : </label>
+    <select style="width: 225px;" name="cityname" id="cname" class="form-control">
+        <option value=""></option>
+    </select>
+    <label for="">Locality Name : </label>
+    <select style="width: 225px;" name="lname" id="lname" class="form-control">
+    <option value=""></option>
+    </select>
+    <label for="">Area : </label><input style="width: 225px;" type="text" class="form-control" id="area" name="area">
+    <label for="">Status : </label>
+    <select style="width: 225px;" class="form-control" id="status" name="status"> <option value="">Select Status</option>
+              <option value="Approved">Approved</option>
+              <option value="Pending">Pending</option>
+              <option value="Rejected">Rejected</option>
+    </select>
+    <br>
+    <br>
+    <input style="width: 225px;" type="submit" value="ADD NEW ADS" class="btn btn-success btn-lg">
+</form>         
+       
+    </div> <!-- this is col-6  end -->
+ <div class="col-lg-3"></div>
+     
+ </div> <!-- end of row -->
+
+
+    
+    <script src="../public/js/jquery.js"></script>
+    <script src="../public/js/bootstrap.js"></script>
+</body>
+</html>

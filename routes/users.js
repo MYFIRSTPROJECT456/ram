@@ -1,7 +1,7 @@
 var express = require('express');
 
 var router = express.Router();
-var maindata = require('../model/usersmodel');
+var usersmodel = require('../model/usersmodel');
 
 router.get('/adduse', function(req, res, next){
 	res.render('adduse', {userdata:req.session});
@@ -14,7 +14,7 @@ router.post('/addusedata', function(req, res, next){
 		status :req.body.status,
 		upass :req.body.upass,	
 	}
-	maindata.addUsers(inputfielddata4, function(error, result){
+	usersmodel.addUsers(inputfielddata4, function(error, result){
 		if (error) {
 			var msg = 'wrong input';
 			res.redirect('/admin/users/adduse?error'+msg);
@@ -26,7 +26,7 @@ router.post('/addusedata', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	maindata.listUsers(function(error, result){
+	usersmodel.listUsers(function(error, result){
 		if (error) {
 			res.render('users', {error:error});
 		}
@@ -38,7 +38,7 @@ router.get('/', function(req, res, next){
 
 router.get('/updateuse', function(req, res, next){
 	var id = req.query.usersid;
-	maindata.getUserById(id, function(error, result){
+	usersmodel.getUserById(id, function(error, result){
 		if (error) {
 			res.render('users', {error:error});
 		}
@@ -55,7 +55,7 @@ router.post('/updateusedata', function(req, res, next){
 		status : req.body.status, 
 		upass : req.body.upass, 
 	}
-	maindata.updateUsers(inputfielddata4, function(error, result){
+	usersmodel.updateUsers(inputfielddata4, function(error, result){
 		if (error) {
 			res.redirect('/admin/users/updateuse?usersid'+req.body.uid);
 		}
@@ -66,7 +66,7 @@ router.post('/updateusedata', function(req, res, next){
 });
 router.get('/deleteuse', function(req, res, next){
 	var id = req.query.usersid;
-	maindata.deleteUsers(id, function(error, result){
+	usersmodel.deleteUsers(id, function(error, result){
 		res.redirect('/admin/users');	
 	});
 });

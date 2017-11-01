@@ -1,7 +1,7 @@
 var express = require('express');
 
 var router = express.Router();
-var maindata = require('../model/statemodel');
+var statemodel = require('../model/statemodel');
 
 
 //state related work
@@ -23,7 +23,7 @@ router.post('/adddata', function(req, res, next){
 		console.log('no');
 	}*/
 
-	maindata.addState(inputfielddata, function(error, result){
+	statemodel.addState(inputfielddata, function(error, result){
 		if (error) {
 			var msg = 'input wrong';
 			res.redirect('/admin/state/add?error='+msg);
@@ -35,7 +35,7 @@ router.post('/adddata', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	maindata.listState(function(error, result){
+	statemodel.listState(function(error, result){
 		if (error) {
 			res.render('state', {error:error});
 		}
@@ -47,7 +47,7 @@ router.get('/', function(req, res, next){
 
 router.get('/update', function(req, res, next){
 	var id = req.query.stateid;
-	maindata.getStateById(id, function(error, result){
+	statemodel.getStateById(id, function(error, result){
 		if (error) {
 			res.render('state', {error:error});
 		}
@@ -61,7 +61,7 @@ router.post('/updatedata', function(req, res, next){
 		sid : req.body.sid,
 		sname : req.body.sname,
 	}
-	maindata.updateState(inputfielddata, function(error, result){
+	statemodel.updateState(inputfielddata, function(error, result){
 		if (error) {
 			var msg = "wrong inupt";
 			res.redirect('/admin/state/update?stateid='+req.body.sid);
@@ -74,7 +74,7 @@ router.post('/updatedata', function(req, res, next){
 
 router.get('/delete', function(req, res, next){
 	var id = req.query.stateid;
-	maindata.deleteState(id, function(error, result){
+	statemodel.deleteState(id, function(error, result){
 		res.redirect('/admin/state');
 	});
 });

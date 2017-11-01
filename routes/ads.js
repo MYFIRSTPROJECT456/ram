@@ -2,14 +2,14 @@ var express = require('express');
 var fileExtension = require('file-extension'); 
 var router = express.Router();
 var mv = require('mv');
-var maindata = require('../model/adsmodel');
-var maindata1 = require('../model/categorymodel');
-var maindata2 = require('../model/localitymodel');
-var maindata3 = require('../model/statemodel');
-var maindata4 = require('../model/citymodel');
+var adsmodel = require('../model/adsmodel');
+var categorymodel = require('../model/categorymodel');
+/*var localitymodel = require('../model/localitymodel');*/
+var statemodel = require('../model/statemodel');
+/*var citymodel = require('../model/citymodel');*/
 
 router.get('/', function(req, res, next){
-	maindata.listAds(function(error, result){
+	adsmodel.listAds(function(error, result){
 		if (error) {
 			res.render('ads', {error:error});
 		}
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/addads', function(req, res, next){
-	maindata3.listState(function(error, result){
+	statemodel.listState(function(error, result){
 		if (error) {
 		   	res.render('addads', {error:error});
 		}
@@ -28,7 +28,7 @@ router.get('/addads', function(req, res, next){
 			var stateData = result;
 			//res.render('addads', {data:result});
 
-		maindata1.listCategory('', function(error, result){
+		categorymodel.listCategory('', function(error, result){
 			if (error) {
 				res.render('addads',{error:error});
 			}
@@ -71,7 +71,7 @@ router.post('/addadsdata', function(req, res, next){
 		ext: ext
 	}
 	console.log(inputfielddata5);
-	maindata.addAds(inputfielddata5, function(error, result){
+	adsmodel.addAds(inputfielddata5, function(error, result){
 		if (error) {
 			var msg = 'wrong input';
 			//res. redirect('/admin/ads/addads?error'+msg);
@@ -96,7 +96,7 @@ router.post('/addadsdata', function(req, res, next){
 
 router.get('/updateads', function(req, res, next){
 	var id = req.query.adsid;
-	maindata.getAdsById(id, function(error, result){
+	adsmodel.getAdsById(id, function(error, result){
 		if (error) {
 			res.render('ads', {error:error});
 		}
@@ -123,7 +123,7 @@ router.post('/updateadsdata', function(req, res, next){
 		status : req.body.status,
 	}
 	console.log(inputfielddata5);
-	maindata.updateAds(inputfielddata5, function(error, result){
+	adsmodel.updateAds(inputfielddata5, function(error, result){
 		if (error) {
 			res.redirect('/admin/ads/updateads?adsid='+req.body.aid);
 		}
@@ -134,7 +134,7 @@ router.post('/updateadsdata', function(req, res, next){
 });
 router.get('/deleteads', function(req, res, next){
 	var id = req.query.adsid;
-	maindata.deleteAds(id, function(error, result){
+	adsmodel.deleteAds(id, function(error, result){
 		res.redirect('/admin/ads');
 	});
 });
@@ -153,7 +153,7 @@ router.get('/changestatus', function(req, res, next){
 		aid:id,
 		status:status
 	}
-	maindata.changeStatus(inputData, function(error, result){
+	adsmodel.changeStatus(inputData, function(error, result){
 		res.redirect('/admin/ads');
 	});
 });

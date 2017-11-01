@@ -1,10 +1,10 @@
 var express = require('express');
 
 var router = express.Router();
-var maindata = require('../model/categorymodel');
+var categorymodel = require('../model/categorymodel');
 
 router.get('/addcat', function(req, res, next){
-	maindata.listCategory('', function(error, result){
+	categorymodel.listCategory('', function(error, result){
 		if (error) {
 			res.render('addcat', {error:error});
 		}
@@ -22,7 +22,7 @@ router.post('/addcatdata', function(req, res, next){
 
 	}
 	console.log(inputfielddata2);
-	maindata.addCategory(inputfielddata2, function(error, result){
+	categorymodel.addCategory(inputfielddata2, function(error, result){
 		if (error) {
 			var msg = 'wrong input';
 			res.redirect('/admin/category/addcat?error'+msg);
@@ -35,7 +35,7 @@ router.post('/addcatdata', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	maindata.listCategory('', function(error, result){
+	categorymodel.listCategory('', function(error, result){
 		if (error) {
 			res.render('category', {error:error});
 		}
@@ -48,7 +48,7 @@ router.get('/', function(req, res, next){
 
 router.get('/updatecat', function(req, res, next){
     var id = req.query.categoryid;
-	maindata.getCategoryById(id, function(error, result){
+	categorymodel.getCategoryById(id, function(error, result){
 		if (error) {
 			res.render('category', {error:error});
 		}
@@ -64,7 +64,7 @@ router.post('/updatecatdata', function(req, res, next){
 		cname :req.body.cname,
 		pid : req.body.pid,
 	}
-	maindata.updateCategory(inputfielddata2, function(error, result){
+	categorymodel.updateCategory(inputfielddata2, function(error, result){
 		if (error) {
 			var msg = 'wrong input';
 			res.redirect('/admin/category/updatecat?categoryid'+req.body.cid);
@@ -78,14 +78,14 @@ router.post('/updatecatdata', function(req, res, next){
     
 router.get('/delete', function(req, res, next){
 	var id = req.query.categoryid;
-    maindata.deleteCategory(id, function(error, result){
+    categorymodel.deleteCategory(id, function(error, result){
     res.redirect('/admin/category');
 	});
 });
 router.post('/getsubcategorybycategory', function(req, res, next) {
     console.log('Inside ajax');
     var categoryid = req.body.categoryid; 
-    maindata.listCategory(categoryid, function(error, result){
+    categorymodel.listCategory(categoryid, function(error, result){
         if (error) {    
             res.send({error:error});
         }

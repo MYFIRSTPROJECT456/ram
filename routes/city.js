@@ -1,11 +1,11 @@
 var express = require('express');
 
 var router = express.Router();
-var maindata = require('../model/citymodel');
+var citymodel = require('../model/citymodel');
 var maindata1 = require('../model/statemodel');
 
 router.get('/', function(req, res, next) { 
-    maindata.listCity(function(error, result){
+    citymodel.listCity(function(error, result){
         if (error) {    
             res.render('city', {error:error});
         }
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/addcity', function(req, res, next) {
-    maindata1.listState(function(error, result){
+    statemodel.listState(function(error, result){
         if (error) {
             res.render('addcity', {error:error});
         }
@@ -33,7 +33,7 @@ router.post('/addcitydata', function(req, res, next) {
         sname : req.body.sname,
     }
     console.log(inputfielddata1);
-    maindata.addCity(inputfielddata1, function(error, result){
+    citymodel.addCity(inputfielddata1, function(error, result){
         if (error) {
             var msg = 'input wrong';
             res.redirect('/admin/city/cityadd?error='+msg);
@@ -47,14 +47,14 @@ router.post('/addcitydata', function(req, res, next) {
 router.get('/updatecity', function(req, res, next) {
    
     var id = req.query.cityid;
-    maindata.getCityById(id, function(error, result){
+    citymodel.getCityById(id, function(error, result){
         if (error) {
             res.render('city', {error:error});
         }
         else{
             
             var cityData = result;
-            maindata1.listState(function(error, result){
+            statemodel.listState(function(error, result){
                 if (error) {
                     res.render('updatecity', {error:error});
                 }
@@ -78,7 +78,7 @@ router.post('/updatecitydata', function(req, res, next){
         sid : req.body.sid,
         sname : req.body.sname,
     }
-    maindata.updateCity(inputfielddata2, function(err, result){
+    citymodel.updateCity(inputfielddata2, function(err, result){
         if (err) {
             
             res.redirect('/admin/city/updatecity?cityid='+req.body.cid);
@@ -91,14 +91,14 @@ router.post('/updatecitydata', function(req, res, next){
 
 router.get('/delete', function(req, res, next){
     var id = req.query.deleteid;
-    maindata.deleteCity(id, function(error, result){
+    citymodel.deleteCity(id, function(error, result){
         res.redirect('/admin/city');
     });
 });
 router.post('/getcitybystate', function(req, res, next) {
     console.log('Inside ajax');
     var stateid = req.body.stateid; 
-    maindata.listCityByState(stateid, function(error, result){
+    citymodel.listCityByState(stateid, function(error, result){
         if (error) {    
             res.send({error:error});
         }

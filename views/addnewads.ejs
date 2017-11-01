@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add new ads</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            background-repeat: no-repeat;
+             background-size: 100%;
+
+        }
+    </style>
+</head>
+<body>
+ <div class="row">
+ <div class="col-lg-3"></div>
+ <div class="col-lg-6">
+ <form style="border:solid 1px #f3f3f3; padding: 15px;" name="formname" action="/addnewadsdata" method="post" enctype="multipart/form-data" onsubmit="return validation();">
+    
+    <label for="">Title : </label><input style="width: 225px;" type="text" class="form-control" id="tit" name="tit">
+    <p id="error" style="color: red;"></p>
+    <label for="">Tags/Keywords : </label><input style="width: 225px;" type="text" class="form-control" id="tags" name="tags">
+    <p id="error1" style="color: red;"></p>
+    <label for="">Discription : </label><textarea style="width: 225px;" id="Discription" class="form-control" rows="3" name="dis"></textarea>
+    <p id="error2" style="color: red;"></p>
+    <label for="">Upload Image :</label><input type="file" id="img" name="img"></label>
+    <p id="error3" style="color: red;"></p>
+    <label for="">Website : </label><input style="width: 225px;" type="text" class="form-control" id="web" name="web">
+    <p id="error4" style="color: red;"></p>
+    <label for="">Category: </label>
+    <select style="width: 225px;" name="c1name" id="c1name" class="form-control">
+        <option value="">Select Category</option>
+        <% for(var i=0; i < data.length; i++) {%>
+            <option value="<%= data[i].CATEGORYID %>">
+            <%= data[i].CATEGORYNAME %>
+            </option>
+    <% } %>
+    </select>
+    <p id="error5" style="color: red;"></p>
+    <label for="">Sub-Category : </label>
+    <select style="width: 225px;" name="scat" id="scat" class="form-control">
+        <option value="">Select</option>
+    </select>
+    <p id="error6" style="color: red;"></p>
+    <label for="">State : </label>
+    <select style="width: 225px;" name="sname" id="sname" class="form-control">
+        <option value="">Select State</option>
+        <% for(var i=0; i < listState.length; i++) {%>
+            <option value="<%= listState[i].STATEID %>">
+            <%= listState[i].STATENAME %>
+            </option>
+    <% } %>
+    </select>
+    <p id="error7" style="color: red;"></p>
+    <label for="">City : </label><select style="width: 225px;" name="cityname" id="cname" class="form-control">
+        <option value=""></option>
+    </select>
+    <p id="error8" style="color: red;"></p>
+    <label for="">Locality Name : </label>
+    <select style="width: 225px;" name="lname" id="lname" class="form-control">
+    <option value=""></option>
+    </select>
+    <p id="error9" style="color: red;"></p>
+    <label for="">Area : </label><input style="width: 225px;" type="text" class="form-control" id="area" name="area">
+    <p id="error10" style="color: red;"></p>
+    <label for="">Status : </label>
+    <select style="width: 225px;" class="form-control" id="status" name="status"> <option value="">Select Status</option>
+              <option value="Approved">Approved</option>
+              <option value="Pending">Pending</option>
+              <option value="Rejected">Rejected</option>
+    </select>
+    <p id="error11" style="color: red;"></p>
+    <input style="width: 225px;" type="submit" value="ADD NEW ADS" class="btn btn-success btn-lg">
+</form>
+    </div> <!-- this is col-6  end -->
+ <div class="col-lg-3"></div>
+     
+ </div> <!-- end of row -->
+
+
+    
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).on("change", '#sname', function(e) {
+                    var sid = $(this).val();
+                
+    
+                $.ajax({
+                    type: "POST",
+                    data: {stateid: sid},
+                    url: '/admin/city/getcitybystate',
+                    dataType: 'json',
+                    success: function(data) {
+    
+                        var $el = $("#cname");
+                        $el.empty(); // remove old options
+                        $el.append($("<option></option>")
+                                .attr("value", '').text(' Select City'));
+                        $.each(data, function(value, key) {
+                            $el.append($("<option></option>")
+                                    .attr("value", key.CITYID).text(key.CITYNAME));
+                        });     
+                    }
+                });
+    
+            });
+        $(document).on("change", '#cname', function(e) {
+                    var cid = $(this).val();
+                
+    
+                $.ajax({
+                    type: "POST",
+                    data: {cityid: cid},
+                    url: '/admin/locality/getlocalitybycity',
+                    dataType: 'json',
+                    success: function(data) {
+    
+                        var $el = $("#lname");
+                        $el.empty(); // remove old options
+                        $el.append($("<option></option>")
+                                .attr("value", '').text('Select Locality'));
+                        $.each(data, function(value, key) {
+                            $el.append($("<option></option>")
+                                    .attr("value", key.LOCALITYID).text(key.LOCALITYNAME));
+                        });     
+                    }
+                });
+    
+            });
+        $(document).on("change", '#c1name', function(e) {
+                    var c1id = $(this).val();
+                
+    
+                $.ajax({
+                    type: "POST",
+                    data: {categoryid: c1id},
+                    url: '/admin/category/getsubcategorybycategory',
+                    dataType: 'json',
+                    success: function(data) {
+    
+                        var $el = $("#scat");
+                        $el.empty(); // remove old options
+                        $el.append($("<option></option>")
+                                .attr("value", '').text('Select Sub-Category'));
+                        $.each(data, function(value, key) {
+                            $el.append($("<option></option>")
+                                    .attr("value", key.PARENTCATEGORYID).text(key.CATEGORYNAME));
+                        });     
+                    }
+                });
+    
+            });
+
+    </script>
+</body>
+</html>
