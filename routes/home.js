@@ -74,6 +74,11 @@ router.post('/registrationdata', function(req, res, next){
 		}
 	});
 });
+
+router.get('/contactus', function(req, res, next){
+	res.render('contactus');
+})
+
 router.get('/userlogindata', function(req, res, next){
 	res. render('userlogin');
 });

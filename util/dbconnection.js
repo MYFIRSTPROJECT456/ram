@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
   connectionLimit: 10,
   host: 'localhost',
-  user: 'shricons_myuser',
-  password: 'BukIsGard4',
+  user: 'root',
+  password: 'shri',
   database: 'freeads',
   debug: false,
 });
