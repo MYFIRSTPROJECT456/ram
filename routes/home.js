@@ -1,4 +1,9 @@
 var express = require('express');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+var userapp = express();
+
 var fileExtension = require('file-extension');
 var statemodel = require('../model/statemodel');
 var citymodel = require('../model/citymodel');
@@ -9,6 +14,44 @@ var adsmodel = require('../model/adsmodel');
 var router = express.Router();
 var mv = require('mv');
 var router = express();
+
+
+userapp.use(cookieParser());
+userapp.use(session({secret: "Shh, its a secret!", cookie: { expires: new Date(Date.now() + (30 * 86400 * 1000) )}}));
+var usermodel = require('../model/userloginmodel');
+
+
+userapp.post('/userlogin', function(req, res, next) {
+  
+  var username ;
+  var msg ;
+  console.log('user login');
+  usermodel.userLogin(req.body, function(err, data) {
+    console.log('here '+data);
+    if (data === false || data === null || data =='') {
+       msg = 'Wrong username and password';
+       res.redirect('/?msg='+msg);
+    } else {
+      console.log('login is successful');
+       req.session.EMAILID = data[0].EMAILID;
+       console.log('here '+data[0].EMAILID);
+       req.session.USERID = data[0].USERID; 
+       console.log(req.session);
+       res.redirect('/');
+    }
+  });
+});
+
+userapp.use(function(req, res, next) {
+  console.log(req.path);
+  console.log(req.session.EMAILID)
+    if(req.session.EMAILID || req.path ==='/') {
+      next();
+    } else {
+      res.redirect('/');
+    }
+
+});
 
 router.get('/', function(req, res, next){
 	categorymodel.listCategory('', function(error, result) {

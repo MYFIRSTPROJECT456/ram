@@ -17,11 +17,11 @@ hr{
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4"><a href="/"><img style="height: 50px; width: 180px; margin-left: 88px; margin-top: 8px;" src="
 			/images/logo.png" alt=""></a>
-			<form action="/"  role="form" data-toggle="validator" name="formname" method="post" onsubmit="return validation();" style="border: 1px solid lightgrey; padding: 10px 15px; border-radius: 5px; margin-top: 22px;" >
+			<form action="/userlogin"  role="form" data-toggle="validator" name="formname" method="post" onsubmit="return validation();" style="border: 1px solid lightgrey; padding: 10px 15px; border-radius: 5px; margin-top: 22px;" >
 				<h3>Login</h3>
 				<br>
 				 <label for="inputEmail" class="control-label">Email or mobile phone number</label>
-				<input type="text" name="email" class="form-control" id=email" placeholder="Please enter your Email Address">
+				<input type="text" name="emailid" class="form-control" id=email" placeholder="Please enter your Email Address">
 				<p id="error" style="color: red;"></p>
 				<br>
 				<div class="row">
@@ -35,7 +35,7 @@ hr{
 						 </label>
 					</div>
 				</div>
-				<input type="password" name="pass" class="form-control" id="pass" placeholder="Enter your Password">
+				<input type="password" name="userpassword" class="form-control" id="pass" placeholder="Enter your Password">
 				<p id="error1" style="color: red;"></p>
 				<br><br>
 				<input type="submit" value="Login" class="btn btn-warning form-control">
