@@ -54,7 +54,7 @@ adminapp.use('/category', category);
 adminapp.use('/locality', locality);
 adminapp.use('/users', users);
 adminapp.use('/ads', ads);
-adminapp.use('/', function(req, res, next){
+adminapp.use('/admin', function(req, res, next){
   res.render('login');
 });
 

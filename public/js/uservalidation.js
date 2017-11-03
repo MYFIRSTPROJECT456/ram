@@ -1,6 +1,6 @@
-	var email = document.forms['formname']['email'];
+	var email = document.forms['formname']['emailid'];
 	var error = document.getElementById('error');
-	var pass = document.forms['formname']['pass'];
+	var pass = document.forms['formname']['userpassword'];
 	var error1 = document.getElementById('error1');
 		email.addEventListener('blur', removeerror, true);
 		pass.addEventListener('blur', removeerror1, true);

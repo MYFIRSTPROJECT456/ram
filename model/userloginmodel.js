@@ -17,6 +17,7 @@ var userData = {
                     }
                 });
             }
+            connection.release();
         });
         
     }

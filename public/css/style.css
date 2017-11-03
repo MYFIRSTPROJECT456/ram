@@ -128,9 +128,24 @@ ul li a {
 	#form {
 
 		padding: 7px;
-    padding-left: 25px;
+    	padding-left: 14px;
 	}
+	
+	#slide1 {
 
+	background-color: lightgrey;
+	height: 350px;
+	/* position: fixed; */
+
+}
+
+	#slide2 {
+
+	background-color: lightgrey;
+	height: 350px;
+	/* position: fixed;
+	    margin-left: 1072px; */
+	}
 }
 
 @media(max-width: 768px){
@@ -191,5 +206,6 @@ form {
 
 	border:solid 1px black; 
 	padding: 15px;
+	margin-top: 51px;
 
 }

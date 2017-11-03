@@ -15,13 +15,24 @@ var router = express.Router();
 var mv = require('mv');
 var router = express();
 
+router.get('/userlogin', function(req, res, next){
+	res. render('userlogin');
+});
 
-userapp.use(cookieParser());
-userapp.use(session({secret: "Shh, its a secret!", cookie: { expires: new Date(Date.now() + (30 * 86400 * 1000) )}}));
+router.get('/contactus', function(req, res, next){
+	res.render('contactus');
+})
+
+router.get('/registration', function(req, res, next){
+	res. render('registration');
+});
+
+router.use(cookieParser());
+router.use(session({secret: "Shh, its a secret!", cookie: { expires: new Date(Date.now() + (30 * 86400 * 1000) )}}));
 var usermodel = require('../model/userloginmodel');
 
 
-userapp.post('/userlogin', function(req, res, next) {
+router.post('/userlogin', function(req, res, next) {
   
   var username ;
   var msg ;
@@ -30,7 +41,7 @@ userapp.post('/userlogin', function(req, res, next) {
     console.log('here '+data);
     if (data === false || data === null || data =='') {
        msg = 'Wrong username and password';
-       res.redirect('/?msg='+msg);
+       res.redirect('/userlogin?msg='+msg);
     } else {
       console.log('login is successful');
        req.session.EMAILID = data[0].EMAILID;
@@ -42,7 +53,7 @@ userapp.post('/userlogin', function(req, res, next) {
   });
 });
 
-userapp.use(function(req, res, next) {
+router.use(function(req, res, next) {
   console.log(req.path);
   console.log(req.session.EMAILID)
     if(req.session.EMAILID || req.path ==='/') {
@@ -91,9 +102,7 @@ router.get('/', function(req, res, next){
 	
 });
 
-router.get('/userlogin', function(req, res, next){
-	res. render('userlogin');
-});
+
 
 router.get('/registration', function(req, res, next){
 	res. render('registration');
@@ -118,13 +127,7 @@ router.post('/registrationdata', function(req, res, next){
 	});
 });
 
-router.get('/contactus', function(req, res, next){
-	res.render('contactus');
-})
 
-router.get('/userlogindata', function(req, res, next){
-	res. render('userlogin');
-});
 
 router.get('/addnewads', function(req, res, next) {
     //res.render('addnewads');

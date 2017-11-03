@@ -17,6 +17,7 @@ var adminData = {
                     }
                 });
             }
+            connection.release();
         });
         
     }

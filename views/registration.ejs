@@ -14,10 +14,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4"></div>
-				<div class="col-sm-4"><a href="/"><img style="height: 50px; width: 180px;  margin-left: 88px; margin-top: 8px;" src="/images/logo.png" alt=""></a>      
+				<div class="col-sm-4"><a href="/"><img style="height: 40px; width: 160px;  margin-left: 88px; margin-top: 8px;" src="/images/logo.png" alt=""></a>      
 				<form action="/registrationdata" name="formname" method="post" style="border: 1px solid lightgrey; padding: 10px 15px; ; border-radius: 5px; margin-top: 22px;" onsubmit="return validation();">
 					<h3>Create Account</h3>
-					<br>
 					<strong>Your name</strong>
 					<input type="text" name="uname" id="uname" class="form-control">
 					<p id="error" style="color: red;"></p>
@@ -33,7 +32,7 @@
 					<strong>Mobile number(Optional)</strong>
 					<div class="row">
 						<div class="col-sm-3 col-xs-4">
-							<select style="width: 90px;" name=""  class="form-control">
+							<select style="width: 90px;" name="" readonly="readonly"  class="form-control">
 						<option value="IN +91">IN +91</option>
 					        </select>
 				        </div>
@@ -41,7 +40,7 @@
 					<input type="number" name="mob" id="mob" class="form-control" placeholder="Mobile number"></div>
 					</div><!-- end of row-->
 					<p id="error2" style="color: red;"></p>
-					
+					<br>
 					<strong>Password</strong>
 					<input type="password" name="upass" id="upass" class="form-control" placeholder="At least 6 characters">
 					<p id="error3" style="color: red;"></p>
@@ -50,7 +49,7 @@
 					</h5></small>
 					<br>
 					<input type="submit" value="Continue" class="btn btn-warning form-control">
-					<br><br><br>
+					<br><br>
 					Already have an account?<a style="text-decoration: none;" href="/userlogin">Sign in &rtrif; </a>
 				</form>
 			</div>

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Loing</title>
 	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/style.css">
 <style>
 hr{ 
     margin-top: 0.5em;
@@ -15,9 +16,13 @@ hr{
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4"></div>
-		<div class="col-sm-4"><a href="/"><img style="height: 50px; width: 180px; margin-left: 88px; margin-top: 8px;" src="
-			/images/logo.png" alt=""></a>
-			<form action="/userlogin"  role="form" data-toggle="validator" name="formname" method="post" onsubmit="return validation();" style="border: 1px solid lightgrey; padding: 10px 15px; border-radius: 5px; margin-top: 22px;" >
+		<div class="col-sm-4">
+		<div class="navbar-header">
+			<a style="height: 40px; width: 160px; margin-left: 88px; margin-top: 8px;" href="/" class="navbar-brand">FreeAds</a>
+		</div>
+			<!-- <a href="/"><img style="height: 40px; width: 160px; margin-left: 88px; margin-top: 8px;" src="
+			/images/logo.png" alt=""></a> -->
+			<form action="/userlogin"  role="form" data-toggle="validator" name="formname" method="post" onsubmit="return validation();" style="border: 1px solid lightgrey; padding: 10px 15px; border-radius: 5px; margin-top: 50px;" >
 				<h3>Login</h3>
 				<br>
 				 <label for="inputEmail" class="control-label">Email or mobile phone number</label>
@@ -37,17 +42,17 @@ hr{
 				</div>
 				<input type="password" name="userpassword" class="form-control" id="pass" placeholder="Enter your Password">
 				<p id="error1" style="color: red;"></p>
-				<br><br>
+				<br>
 				<input type="submit" value="Login" class="btn btn-warning form-control">
 				<br><br>
 				<input type="checkbox"> Keep me signed in.
-				<br><br>
+				<br>
 				<div class="divider">
 					<h5 style="margin-left:100px;
                                margin-bottom: -15px;">New to Freeads?
                      </h5><hr>
 				</div>
-				<br><br>
+				<br>
 				<a href="/registration" style="
 				  background-color: lightgray;" type="button" class="btn btn-default form-control">Create your Freeads account
 				</a>

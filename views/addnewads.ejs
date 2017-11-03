@@ -8,7 +8,7 @@
         
         #form {
 
-            border:solid 1px black; padding: 15px; padding-left: 65px;    
+            border:solid 1px black; padding: 15px; padding-left: 58px;    
         }
     @media(max-width: 768px) {
 
@@ -28,10 +28,12 @@
     </style>
 </head>
 <body>
+    <%- include homecomman %>
+    <div class="container-fluid">
  <div class="row">
  <div class="col-lg-4 col-sm-4"></div>
  <div class="col-lg-4 col-sm-4">
- <form  id="form" name="formname" action="/addnewadsdata" method="post" enctype="multipart/form-data" onsubmit="return validation();">
+ <form id="form" name="formname" action="/addnewadsdata" method="post" enctype="multipart/form-data" onsubmit="return validation();">
     
     <label for="">Title : </label><input style="width: 280px;" type="text" class="form-control" id="tit" name="tit">
     <p id="error" style="color: red;"></p>
@@ -39,7 +41,7 @@
     <p id="error1" style="color: red;"></p>
     <label for="">Discription : </label><textarea style="width: 280px;" id="Discription" class="form-control" rows="3" name="dis"></textarea>
     <p id="error2" style="color: red;"></p>
-    <label for="">Upload Image :</label><input type="file" id="img" name="img"></label>
+    <label for="">Upload Image :</label><input type="file" id="img" name="img">
     <p id="error3" style="color: red;"></p>
     <label for="">Website : </label><input style="width: 280px;" type="text" class="form-control" id="web" name="web">
     <p id="error4" style="color: red;"></p>
@@ -80,7 +82,8 @@
     <label for="">Area : </label><input style="width: 280px;" type="text" class="form-control" id="area" name="area">
     <p id="error10" style="color: red;"></p>
     <label for="">Status : </label>
-    <select style="width: 280px;" class="form-control" id="status" name="status"> <option value="">Select Status</option>
+    <select style="width: 280px;" class="form-control" id="status" name="status">
+              <option value="">Select Status</option>
               <option value="Approved">Approved</option>
               <option value="Pending">Pending</option>
               <option value="Rejected">Rejected</option>
@@ -92,7 +95,7 @@
  <div class="col-lg-4 col-sm-4"></div>
      
  </div> <!-- end of row -->
-
+</div>
 
     
     <script src="/js/jquery.js"></script>
