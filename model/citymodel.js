@@ -24,7 +24,7 @@ var city = {
         });
     },
     listCity : function(cb){
-        var sql = "SELECT * FROM city INNER JOIN state ON city.CITYID = state.STATEID";
+        var sql = "SELECT * FROM city INNER JOIN state ON city.STATEID = state.STATEID";
         pool.getConnection(function(err, connection){
             if (err) {
                     console.log('connection error'+err);
@@ -44,7 +44,7 @@ var city = {
                 
     },
     listCityByState : function(stateid, cb){
-        var sql = "SELECT * FROM city c INNER JOIN state s ON c.CITYID = s.STATEID WHERE c.STATEID="+stateid;
+        var sql = "SELECT * FROM city c INNER JOIN state s ON c.STATEID = s.STATEID WHERE c.STATEID="+stateid;
         pool.getConnection(function(err, connection){
             if (err) {
                     console.log('connection error'+err);
@@ -100,8 +100,8 @@ var city = {
         });
 
     },
-    updateCity: function(inputData, cb){
-        var sql = "update city set CITYNAME='"+inputData.cname+"', STATENAME='"+inputData.sname+"', STATEID="+inputData.sid+", UPDATIONDATE=now() where cityid="+inputData.cid;
+    updateCity: function(inputData,cid, cb){
+        var sql = "update city set CITYNAME='"+inputData.cname+"', STATEID="+inputData.sname+", UPDATIONDATE=now() where cityid="+cid;
         console.log('quer is wor='+sql);
         pool.getConnection(function(err, connection){
             if (err) {

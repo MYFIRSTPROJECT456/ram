@@ -22,8 +22,11 @@ var state = {
 		});
 	},
 	listState: function(cb){
+		console.log('02');
 		var sql = "select * from state";
+		console.log('sql', sql);
 		pool.getConnection(function(error, connection){
+			console.log('conn', error, connection);
 			if (error) {
 				console.log('connection error'+error);
 			}
@@ -80,6 +83,26 @@ var state = {
 	},
 	deleteState(sid, cb){
 		var sql = "delete from state where stateid="+sid;
+		pool.getConnection(function(error, connection){
+			if (error) {
+				console.log('connection error'+error);
+			}
+			else{
+				connection.query(sql, function(error, result){
+					if (error) {
+						cb(error, null);
+					}
+					else{
+						cb(null, result);
+					}
+				});
+			}
+			connection.release();
+		});
+	},
+	addcontactus: function(inputData, cb){
+		var sql = "insert into contactus (username, emailid, mobileno, message, CREATIONDATE, UPDATIONDATE)values('"+inputData.username+"','"+inputData.emailid+"','"+inputData.mobileno+"','"+inputData.message+"' ,now(), now())";
+		console.log('jkadsjkf'+sql);
 		pool.getConnection(function(error, connection){
 			if (error) {
 				console.log('connection error'+error);

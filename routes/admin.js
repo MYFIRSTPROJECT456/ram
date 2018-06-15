@@ -1,4 +1,4 @@
-/**/var express = require('express');
+var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var adminapp = express();
@@ -25,7 +25,7 @@ adminapp.post('/login', function(req, res, next) {
     console.log('here '+data);
     if (data === false || data === null || data =='') {
        msg = 'Wrong username and password';
-       res.redirect('/admin?msg='+msg);
+       res.render('login', {msg:msg});
     } else {
       console.log('login is successful');
        req.session.ADMINUSER = data[0].ADMINUSER;
@@ -35,6 +35,13 @@ adminapp.post('/login', function(req, res, next) {
        res.redirect('/admin/state');
     }
   });
+});
+
+adminapp.use('/logout', function(req, res, next){
+   var dest =  req.session.destroy();
+      if (dest) {
+        res.redirect('/admin');
+      }
 });
 
 adminapp.use(function(req, res, next) {
@@ -54,12 +61,8 @@ adminapp.use('/category', category);
 adminapp.use('/locality', locality);
 adminapp.use('/users', users);
 adminapp.use('/ads', ads);
-adminapp.use('/admin', function(req, res, next){
-  res.render('login');
+adminapp.use('/', function(req, res, next){
+  var msg = "";
+  res.render('login', {msg:msg});
 });
-
-
-
-
-
 module.exports = adminapp;

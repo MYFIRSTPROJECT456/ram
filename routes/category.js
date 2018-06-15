@@ -82,8 +82,11 @@ router.get('/delete', function(req, res, next){
     res.redirect('/admin/category');
 	});
 });
+
+
 router.post('/getsubcategorybycategory', function(req, res, next) {
-    console.log('Inside ajax');
+	console.log('myname is');
+    console.log('res012', req.body);
     var categoryid = req.body.categoryid; 
     categorymodel.listCategory(categoryid, function(error, result){
         if (error) {    

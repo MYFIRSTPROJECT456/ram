@@ -1,0 +1,46 @@
+<div class="header">
+	<div class="container-fluid" id="middle">
+		<div class="row">
+			<div id="slide1" class="col-lg-2 col-sm-2">
+				<ul class="nav nav-pills nav-stacked" id="slide1-nav">
+						<% for(var i=0; i< categorydata[0].length; i++) {%>
+					  <li class="dropdown">
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= categorydata[0][i].CATEGORYNAME%>
+					    <span class="caret"></span></a>
+					    <ul class="dropdown-menu">
+					    	<% 
+							var categoryid  = categorydata[0][i].CATEGORYID;
+							if (categorydata[categoryid]) {
+							var newArr = categorydata[categoryid];
+							for(var j=0; j< newArr.length; j++) {
+							%>
+					      <li><a href="/listing"><%= newArr[j].CATEGORYNAME%></a></li>
+							<% } 
+							}
+							%>	
+					    </ul>
+					 	</li>
+					  <% } %>
+				</ul>
+			</div>
+			<div id="main" class="col-lg-8 col-sm-8">
+			
+			</div>
+			<div id="slide2" class="col-lg-2 col-sm-2">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+				</script>
+					<ins class="adsbygoogle"
+					    style="display:block"
+					    data-ad-format="fluid"
+					    data-ad-layout-key="-92-r+3g-x-79"
+					    data-ad-client="ca-pub-4456210912337562"
+					    data-ad-slot="6006569688">
+					</ins>
+				<script>
+				    (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end of middle section -->

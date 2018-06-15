@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>add new ads</title>
+    <title>Free Ad Posting | Free Web Directory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <style>
         
@@ -16,18 +17,19 @@
 
             padding: 2px;
             padding-left: 25px;
+            margin-left: 64px;
         }
     }
         
         body {
-            background-color: #f2f2f2;
+            background-color:grey;
             background-repeat: no-repeat;
              background-size: 100%;
 
         }
     </style>
 </head>
-<body>
+<body style="background-color: #74a7a3;">
     <%- include homecomman %>
     <div class="container-fluid">
  <div class="row">
@@ -41,7 +43,7 @@
     <p id="error1" style="color: red;"></p>
     <label for="">Discription : </label><textarea style="width: 280px;" id="Discription" class="form-control" rows="3" name="dis"></textarea>
     <p id="error2" style="color: red;"></p>
-    <label for="">Upload Image :</label><input type="file" id="img" name="img">
+    <label for="">Upload Image :</label><input type="file" name="img">
     <p id="error3" style="color: red;"></p>
     <label for="">Website : </label><input style="width: 280px;" type="text" class="form-control" id="web" name="web">
     <p id="error4" style="color: red;"></p>
@@ -81,14 +83,14 @@
     <p id="error9" style="color: red;"></p>
     <label for="">Area : </label><input style="width: 280px;" type="text" class="form-control" id="area" name="area">
     <p id="error10" style="color: red;"></p>
-    <label for="">Status : </label>
+    <!-- <label for="">Status : </label>
     <select style="width: 280px;" class="form-control" id="status" name="status">
               <option value="">Select Status</option>
               <option value="Approved">Approved</option>
               <option value="Pending">Pending</option>
               <option value="Rejected">Rejected</option>
     </select>
-    <p id="error11" style="color: red;"></p>
+    <p id="error11" style="color: red;"></p> -->
     <input style="width: 280px" type="submit" value="ADD NEW ADS" class="btn btn-success btn-lg">
 </form>
     </div> <!-- this is col-6  end -->
@@ -100,7 +102,7 @@
     
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="/js/adsvalidation.js"></script>
+    <script src="/js/addnewadsvalidation.js"></script>
     <script type="text/javascript">
         $(document).on("change", '#sname', function(e) {
                     var sid = $(this).val();
@@ -109,7 +111,7 @@
                 $.ajax({
                     type: "POST",
                     data: {stateid: sid},
-                    url: '/admin/city/getcitybystate',
+                    url: '/getcitybystate',
                     dataType: 'json',
                     success: function(data) {
     
@@ -132,7 +134,7 @@
                 $.ajax({
                     type: "POST",
                     data: {cityid: cid},
-                    url: '/admin/locality/getlocalitybycity',
+                    url: '/getlocalitybycity',
                     dataType: 'json',
                     success: function(data) {
     
@@ -155,7 +157,7 @@
                 $.ajax({
                     type: "POST",
                     data: {categoryid: c1id},
-                    url: '/admin/category/getsubcategorybycategory',
+                    url: '/getsubcategorybycategory',
                     dataType: 'json',
                     success: function(data) {
     
@@ -165,7 +167,7 @@
                                 .attr("value", '').text('Select Sub-Category'));
                         $.each(data, function(value, key) {
                             $el.append($("<option></option>")
-                                    .attr("value", key.PARENTCATEGORYID).text(key.CATEGORYNAME));
+                                    .attr("value", key.CATEGORYID).text(key.CATEGORYNAME));
                         });     
                     }
                 });

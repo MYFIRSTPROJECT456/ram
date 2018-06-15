@@ -4,7 +4,7 @@ var locality = {
 
 	// all locality related querys    
 	addLocality: function(inputData, cb){
-		var sql = "insert into locality (LOCALITYNAME, CITYID, CREATIONDATE, UPDATIONDATE)values('"+inputData.lname+"',"+inputData.cname+", now(), now())";
+		var sql = "insert into locality (LOCALITYNAME, CITYID, CREATIONDATE, UPDATIONDATE)values('"+inputData.lname+"','"+inputData.cname+"', now(), now())";
 		console.log('quer is wor='+sql);
 		pool.getConnection(function(error, connection){
 			if (error) {
@@ -24,7 +24,7 @@ var locality = {
 		});
 	},
 	listLocality: function(cb){
-		var sql = "SELECT * FROM locality INNER JOIN city ON locality.LOCALITYID = city.CITYID";
+		var sql = "SELECT * FROM locality l INNER JOIN city c ON l.CITYID = c.CITYID";
 		pool.getConnection(function(error, connection){
 			if (error) {
 				console.log('connection error'+error);
@@ -43,7 +43,7 @@ var locality = {
 		});
 	},
 	listLocalityByCity: function(cityid, cb){
-		var sql = "SELECT * FROM locality l INNER JOIN city c ON l.LOCALITYID = c.CITYID where c.CITYID="+cityid;
+		var sql = "SELECT * FROM locality l INNER JOIN city c ON l.CITYID = c.CITYID where c.CITYID="+cityid;
 		pool.getConnection(function(error, connection){
 			if (error) {
 				console.log('connection error'+error);

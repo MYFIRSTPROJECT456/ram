@@ -29,6 +29,7 @@ var category = {
     		where = " WHERE a.parentcategoryid= "+parentcategoryid;
     	}
 		var sql = "select a. * , b.CATEGORYNAME PARENTCATNAME FROM category a LEFT JOIN category b on a.PARENTCATEGORYID = b.CATEGORYID"+where;
+		console.log('0120', sql);
 		pool.getConnection(function(error, connection){
 			if (error) {
 				console.log('connection error'+error);

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CategoryList</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
@@ -21,14 +22,15 @@
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
-	<% for(var i = 0; i < data.length; i++){%>
+	<% for(var i = 0; i < data.length; i++){
+		var list = data[i]%>
 	<tr>
-		<td><%= data[i].CATEGORYID %></td>
-		<td><%= data[i].CATEGORYNAME %></td>
-		<td><%= data[i].PARENTCATEGORYID %></td>
-		<td><%= data[i].PARENTCATNAME %></td>
-		<td><%= data[i].CREATIONDATE %></td>
-		<td><%= data[i].UPDATIONDATE %></td>
+		<td><%= list.CATEGORYID %></td>
+		<td><%= list.CATEGORYNAME %></td>
+		<td><%= list.PARENTCATEGORYID %></td>
+		<td><%= list.PARENTCATNAME %></td>
+		<td><%= list.CREATIONDATE %></td>
+		<td><%= list.UPDATIONDATE %></td>
 		<td><a href="/admin/category/updatecat?categoryid=<%= data[i].CATEGORYID %>" data-toggle="tooltip" title="edit" id="edit"><span class="glyphicon glyphicon-edit">Edit</span></a></td>
 		<td><a href="/admin/category/delete?categoryid=<%=data[i].CATEGORYID %>" data-toggle="tooltip" title="delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 	</tr>

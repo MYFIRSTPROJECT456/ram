@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>UPDATE CITY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
@@ -15,13 +16,17 @@
        
                 <!-- <label for="">City Id : </label> --><input style=" width: 222px;" type="hidden" class="form-control" id="cid" readonly="readonly" name="cid" value="<%= data[0].CITYID %>">
                        
-                
+                <input style=" width: 222px;" type="hidden" class="form-control" id="sid" readonly="readonly" name="sid" value="<%= data[0].STATEID %>">
                 <label for="">State Name : </label>
                 <select style="width: 184px;" name="sname" id="" class="form-control">
                     
-                    <% for(var i=0; i < stateList.length; i++){ %>
-                    <option value="<%= stateList[i].STATEID %>" <% if (data[0].STATEID == stateList[i].STATEID) { %> selected="selected" <% } %>><%= stateList[i].STATENAME %></option>
-                    <% } %>
+                <% for(var i=0; i < stateList.length; i++){ %>
+                <option value="<%= stateList[i].STATEID %>"
+                    <%if(data[0].STATEID ==  stateList[i].STATEID){%> 
+                    selected = "selected"
+                    <%}%>>
+                 <%= stateList[i].STATENAME %></option>
+                <% } %>
                 
                 </select>
                  <br><br>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h2> LocalStrage Testing</h2>
+				<form action="" id="form">
+					<label for="">Todo</label>
+					<input type="text" class="form-control" id="inputValue"><br>
+					<input type="submit" id="btn" class="btn btn-success">
+				</form>
+				<br>
+				<table class="table-striped">
+					<thead>
+						<th>Todo List</th>
+					</thead>
+					<tbody id="tododata">
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				var value = $("#inputValue").val();
+				
+				if (value) {
+					var showItem = value;
+					alert(showItem);
+					localStorage.setItem('listItem',showItem); 
+					$("#form")[0].reset();
+					$("#tododata").prepend('<tr><td>'+value+'<td></tr>');
+				}else{
+					alert("please write something");
+				}
+				return false;
+			});
+		});
+		if (localStorage.getItem("listItem")) {
+			var listItems = localStorage.getItem("listItem");
+			$("#tododata").html(listItems);
+		}
+	</script>
+</body>
+</html>

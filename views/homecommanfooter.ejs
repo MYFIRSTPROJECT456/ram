@@ -1,18 +1,15 @@
-<link rel="stylesheet" href="/css/style.css">
-<div id="myFooter" class="navbar navbar-default navbar-fixed-bottom" role="navigation"><!-- start footer section -->
+<div style="margin: 0px;" id="myFooter" class="navbar navbar-default navbar-fixed-bottom" role="navigation"><!-- start footer section -->
 	<div class="container">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myfooternavs">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+			<button type="button" id="mybtn" class="navbar-toggle" data-toggle="collapse" data-target="#myfooternavs">
+				<span id="up" class="glyphicon glyphicon-chevron-up"></span>
+				<span id="down" class="glyphicon glyphicon-chevron-down"></span>
 			</button>
-
 		</div>
 		<div class="navbar-collapse collapse" id="myfooternavs">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav footernav">
 				<li><a href="/">Home</a></li>
-				<li><a href="">About Us</a></li>
+				<li><a href="/aboutus">About Us</a></li>
 				<li><a href="/contactus">Contact Us</a></li>
 				<div class="social">
 					<a id="follow">Follow us on:</a>
@@ -27,7 +24,42 @@
 	</div>
 	<div class="footer-copyright text-center">
         <div class="container-fluid">
-            © 2017 Copyright: <a id="Copyright" href="http://localhost:3000/"> FreeAds.com </a>
+            © 2016-2017 Copyright: <a id="Copyright" href="http://localhost:3000/"> SHRIVANSH TECHNOLOGY</a>
         </div>
     </div>
 </div><!-- end of footer section -->
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script>
+$(document).ready(function () {
+
+$('#sidebarCollapse').on('click', function () {
+	$('#sidebar').toggleClass('active');
+});
+
+});
+	$(document).ready(function(){
+		$('#down').hide();
+	});
+	function up(){
+		var up = document.getElementById('up');
+		if (up.style.display=="none") {
+			up.style.display="block";
+		}
+		else{
+			up.style.display = "none";
+		}
+	}
+
+	function down(){
+		var down = document.getElementById('down');
+		if (down.style.display=="block") {
+			down.style.display="none";
+		}
+		else {
+			down.style.display="block";
+		}
+	}
+	document.getElementById('mybtn').addEventListener('click', up);
+	document.getElementById('mybtn').addEventListener('click', down);
+</script>

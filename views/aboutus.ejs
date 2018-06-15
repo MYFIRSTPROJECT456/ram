@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aboutus</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home1.css">
+    <script src="https://use.fontawesome.com/5ee69e6b7c.js"></script>
+</head>
+<body>
+    <%- include homecomman.ejs %>
+    <%- include homecommanfooter.ejs %>
+
+<div class="header">
+    <div class="container-fluid" id="middle">
+        <div class="row">
+            <div id="slide1" class="col-lg-3 col-sm-3">
+                 <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <ul class="list-unstyled components" >
+                        <% for(var i=0; i< categorydata[0].length; i++) {%>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= categorydata[0][i].CATEGORYNAME%>
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <% 
+                            var categoryid  = categorydata[0][i].CATEGORYID;
+                            if (categorydata[categoryid]) {
+                            var newArr = categorydata[categoryid];
+                            for(var j=0; j< newArr.length; j++) {
+                            %>
+                          <li><a href="/listing"><%= newArr[j].CATEGORYNAME%></a></li>
+                            <% } 
+                            }
+                            %>  
+                        </ul>
+                        </li>
+                      <% } %>
+                </ul>
+
+            </nav>
+</div>
+            </div>
+            <div id="about" class="col-lg-9 col-sm-9" style="overflow-x: hidden;">
+            <img src="/images/aboutus.jpg" alt="">
+            <div>
+            <marquee ><h1 style="color: #46cebe">Freeads.shrivansh.com</h1></marquee>
+            <h3><a href="">FreeadsAds</a></h3><p>is India’s largest online marketplace, connecting buyers with suppliers. The online channel focuses on providing a platform to do the business online, large enterprises as well as individuals.</p>
+
+
+            <p>Founded in 2010, the company’s mission is ‘to make doing business easy’. Keeping this mission in mind, we come up with appropriate initiatives from time to time. Recently, we have launched a payment protection program called FreeAds</p>
+             <h3>Freeads for buyers</h3>
+             <p> Convenience of connecting with sellers anytime, anywhere</p>
+             <p> Wider marketplace with a range of products and suppliers</p>
+             <p> One-stop- shop for all requirements</p>
+             <h3>Freeads for suppliers</h3>
+             <p>Enhanced business visibility</p>
+             <p>Access to buyers from across the globe</p>
+             <p> Increased credibility for your brand</p>
+
+             </div>
+            <div id="teamimg" class="row" style="margin-bottom: 77px;">
+            <h3 style="text-align: center;">Our Team</h3>
+            <div class="col-lg-3">
+                 <img src="" class="thumbnail img-responsive transparent" alt="" style="height: 150px;background-color:red;" >
+                 <p>deepak chauhan</p><br>
+                 
+            </div> <!-- end of first deepak div -->
+            <div class="col-lg-3">
+                  <img src="" class="thumbnail img-responsive transparent" alt="" style="height: 150px;background-color:red;" >
+                 <p>Ramesh Thakur</p><br>
+                
+            </div> <!-- end of ramesh div img -->
+            <div class="col-lg-3">
+                 <img src="" class="thumbnail img-responsive transparent" alt="" style="height: 150px;background-color:red;" >
+                 <p>Abhishke Pandey</p><br>
+                 <p></p>
+            </div>
+            <div class="col-lg-3 container">
+                   <img src="" class="thumbnail img-responsive transparent" alt="" style="height: 150px;background-color:red;" >
+                 <p>Sudhir yadav</p><br>
+              </div>
+            </div>  <!-- end of row image -->
+    </div>
+<!-- end of middle section -->
+
+        </div>
+    </div>
+</div>
+   
+</body>
+</html>

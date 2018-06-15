@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.itemData{
+			display: flex;
+			flex-basis: 100%;
+			align-items: center;
+			color: rgba(0, 0, 0, 0.35);
+			margin: 8px 0px;
+		}
+		.itemData::before, 
+		.itemData::after{
+			height: 1px;
+			flex-grow: 1;
+			background: rgba(0, 0, 0, 0.5);
+			content: "";
+			font-size: 0px;
+			line-height: 0px;
+			margin: 0px 8px;
+		}
+	</style>
+</head>
+<body>
+	<div class="itemData">my name is deepak</div>
+</body>
+</html>

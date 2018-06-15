@@ -2,7 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 var citymodel = require('../model/citymodel');
-var maindata1 = require('../model/statemodel');
+var statemodel = require('../model/statemodel');
 
 router.get('/', function(req, res, next) { 
     citymodel.listCity(function(error, result){
@@ -72,6 +72,7 @@ router.get('/updatecity', function(req, res, next) {
 });
 
 router.post('/updatecitydata', function(req, res, next){
+    console.log('0112', req.body);
     var inputfielddata2 = {
          cid : req.body.cid,
         cname : req.body.cname,
@@ -96,7 +97,7 @@ router.get('/delete', function(req, res, next){
     });
 });
 router.post('/getcitybystate', function(req, res, next) {
-    console.log('Inside ajax');
+    console.log('Inside ajax020', req.body);
     var stateid = req.body.stateid; 
     citymodel.listCityByState(stateid, function(error, result){
         if (error) {    

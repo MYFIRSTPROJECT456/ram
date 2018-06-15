@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+       <ul class="list-unstyled components" style="margin-top: 32px;">
+                <% for(var i=0; i< categorydata[0].length; i++) {%>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/listing?categoryid=<%= categorydata[0][i].CATEGORYID %>"><%= categorydata[0][i].CATEGORYNAME%>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <% 
+                    var categoryid  = categorydata[0][i].CATEGORYID;
+                    if (categorydata[categoryid]) {
+                    var newArr = categorydata[categoryid];
+                    for(var j=0; j< newArr.length; j++) {
+                    %>
+                  <li><a href="/listing?subcategoryid=<%= newArr[j].CATEGORYID %>"><%= newArr[j].CATEGORYNAME%></a></li>
+                    <% } 
+                    }
+                    %>	
+                </ul>
+                 </li>
+              <% } %>
+        </ul>
+    </nav>
+    </div>

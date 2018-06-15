@@ -97,33 +97,43 @@
 			if (tit.value == '') {
 				error.textContent = 'Please enter your tittle?';
 				successflag = false;
+
 			}if (tags.value == '') {
 				error1.textContent = 'Please enter your tags?';
 				successflag = false;
+
 			}if (dis.value == '') {
 				error2.textContent = 'Please enter your Discription?';
 				successflag = false;
+
 			}if (img.value == '') {
 				error3.textContent = 'Please choose your image?';
 				successflag = false;
+
 			}if (web.value == '') {
 				error4.textContent = 'Please enter your Website?';
 				successflag = false;
+
 			}if (c1name.value == '') {
 				error5.textContent = 'Please select your category?';
 				successflag = false;
+
 			}if (scat.value == '') {
 				error6.textContent = 'Please select your sub-category?';
 				successflag = false;
+
 			}if (sname.value == '') {
 				error7.textContent = 'Please select your state?';
 				successflag = false;
+
 			}if (cityname.value == '') {
 				error8.textContent = 'Please select your city?';
 				successflag = false;
+
 			}if (lname.value == '') {
 				error9.textContent = 'Please select your locality?';
 				successflag = false;
+				
 			}if (area.value == '') {
 				error10.textContent = 'Please enter your area?';
 				successflag = false;

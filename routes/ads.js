@@ -9,7 +9,8 @@ var statemodel = require('../model/statemodel');
 /*var citymodel = require('../model/citymodel');*/
 
 router.get('/', function(req, res, next){
-	adsmodel.listAds(function(error, result){
+	var inputData = '';
+	adsmodel.listAds(inputData, function(error, result){
 		if (error) {
 			res.render('ads', {error:error});
 		}
@@ -41,17 +42,20 @@ router.get('/addads', function(req, res, next){
 			
 });
 router.post('/addadsdata', function(req, res, next){
+	console.log('05', req.body, req.files);
 	//var addapp = express(); 
 	//addapp.use(fileUpload());
 
 	//if (!req.files)
 	var fileExtension = require('file-extension');
     var sampleFile = req.files.img;
- 	console.log(sampleFile);
+ 	// console.log('0123', sampleFile);
  	var path = __dirname+'/../public/temp/'+sampleFile.name;
  	var ext = fileExtension('sampleFile.name.png');  // find extension
+ 	var ext = fileExtension('sampleFile.name.jpg');  // find extension
+ 	console.log('etxt12', ext);
 	sampleFile.mv(path, function(err) {
-  			console.log(err);
+  		/*	console.log(err);*/
   	});
   	//res.send('Hi');
   	

@@ -5,7 +5,7 @@ var userData = {
             if (err) {
                throw err;     
             } else {
-                var sql = "select * from users where EMAILID='"+inputData.emailid+"' and USERPASSWORD = '"+inputData.userpassword+"'";
+                var sql = "select * from users where EMAILID='"+inputData.emailid+"' || MOBILENO='"+inputData.emailid+"' and USERPASSWORD = '"+inputData.userpassword+"'";
                 console.log('query is working='+sql);
                 connection.query(sql,function(err, result) {
 
